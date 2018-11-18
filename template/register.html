@@ -75,7 +75,87 @@
 			<section id="format" class="wrapper style1">
 				<div class="container">
 					<header class="major">
-						<h2>Lorem ipsum dolor</h2>
+                        <h2>REGISTRATI QUI</h2>
+                        <section>
+                                <form method="post" action="#">
+                                    <div class="row uniform">
+                                        <div class="6u 12u(3)">
+                                            <input type="text" name="name" id="name" value="" placeholder="Nome" required/>
+                                        </div>
+                                        <div class="6u 12u(3)">  
+                                            <input type="text" name="surname" value="" placeholder="Cognome" required />
+                                        </div>
+                                        <div class="6u 12u(3)">
+                                            <input type="email" name="email" id="email" value="" placeholder="Email"  required/>
+                                        </div>
+
+                                        <div class="6u 12u(3)">
+                                            <input type="text" name="phoneNumber" value="" placeholder="Numero di telefono" required/>
+                                        </div>
+                                        <div class="6u 12u(3)">
+                                                <input type="text" name="address" value="" placeholder="Indirizzo" required/>
+                                            </div>
+                                        <div class="6u 12u(3)">
+                                             <input type="text" name="CF" value="" placeholder="Codice Fiscale" required/>
+                                        </div>
+                                        <!-- MI SERVE UNA CSS PER IL CAMPO DATA -->
+                                        <div class="12u">
+                                                <input type="date" name="birthday" value="" placeholder="Data di nascita" required/>
+                                            </div>
+    
+        
+    
+
+                                    </div>
+                                    <div class="row uniform">
+                                        <div class="12u">
+                                            <div class="select-wrapper">
+                                                <select name="category" id="category">
+                                                    <option value="">- Category -</option>
+                                                    <option value="1">Manufacturing</option>
+                                                    <option value="1">Shipping</option>
+                                                    <option value="1">Administration</option>
+                                                    <option value="1">Human Resources</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row uniform">
+                                        <div class="4u 12u(2)">
+                                            <input type="radio" id="newUser" name="newUser" checked>
+                                            <label for="priority-low">Nuovo Cliente</label>
+                                        </div>
+                                        <div class="4u 12u(2)">
+                                            <input type="radio" id="oldUser" name="oldUser">
+                                            <label for="priority-normal">Vecchio Cliente</label>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row uniform">
+                                        <div class="6u">
+                                            <input type="checkbox" id="copy" name="copy">
+                                            <label for="copy">Mandami una copia di questo mail</label>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="row uniform">
+                                        <div class="12u">
+                                            <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row uniform">
+                                        <div class="12u">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send Message" /></li>
+                                                <li><input type="reset" value="Reset" class="alt" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+
+
+
 					</header>
 				</div>
 			</section>
