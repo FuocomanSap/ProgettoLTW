@@ -23,8 +23,8 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
+	
 	<body class="landing">
-
 		<!-- Header -->
 			<header id="header" class="alt skel-layers-fixed">
 					<h1 >
@@ -40,13 +40,28 @@
 						<li><a href="dovesiamo.html">Dove siamo</a></li>
 						<li><a href="contatti.html">Contatti</a></li>
 						<li>
-								<a href="login.html" class="icon fa-angle-down">Login</a>
+								<a href="myaccount.html" class="icon fa-angle-down"> Benvenuto, <span id="log"></span> </a>
 								<ul>
-									<li><a href="register.html">Registrati</a></li>
+									<li><a href="prenota.html">Prenota una visita</a></li>
+									<li><a href="register.html">La mia cartella</a></li>
+									<li><a href="register.html">Impostazioni</a></li>
 								</ul>
 							</li>
 					</ul>
 				</nav>
+
+				<script language="JavaScript">
+						function prendiNome(){
+							var parameters = location.search.substring(1).split("&");
+					
+							var temp = parameters[0].split("=");
+							l = unescape(temp[1]);
+					
+							document.getElementById("log").innerHTML = l;
+						}
+						prendiNome();
+					</script>
+
 			</header>
 
 			
@@ -69,6 +84,8 @@
 						<p>Il nostro studio bla bla bla<br />
 						<br />
 						</p>
+
+
 					</header>
 					<div class="slider">
 						<span class="nav-previous"></span>
