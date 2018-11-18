@@ -43,8 +43,8 @@
 								<a href="myaccount.html" class="icon fa-angle-down"> Benvenuto, <span id="log"></span> </a>
 								<ul>
 									<li><a href="prenota.html">Prenota una visita</a></li>
-									<li><a href="register.html">La mia cartella</a></li>
-									<li><a href="register.html">Impostazioni</a></li>
+									<li><a href="miacartella.html">La mia cartella</a></li>
+									<li><a href="impostazioni.html">Impostazioni</a></li>
 								</ul>
 							</li>
 					</ul>
@@ -58,6 +58,13 @@
 							l = unescape(temp[1]);
 					
 							document.getElementById("log").innerHTML = l;
+							
+							temp = parameters[1].split("=");
+							c = unescape(temp[1]);
+							
+							if(c!="kQ94is3PRPPgry01JK2e"){
+								window.location.href = "index.html";
+							}
 						}
 						prendiNome();
 					</script>
