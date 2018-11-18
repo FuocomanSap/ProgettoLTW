@@ -1,112 +1,32 @@
-<head>
-		<title> </title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrollgress.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.slidertron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body class="landing">
-
-		<!-- Header -->
-			<header id="header" class="alt skel-layers-fixed">
-				<h2>
-				<input type="image" href="index.html "src="images/tooth.png" width="48" height="48">
-				iDentistCare
-				
-				</h2>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="chisiamo.html">Chi siamo</a></li>
-						<li><a href="dovesiamo.html">Dove siamo</a></li>
-						<li><a href="contatti.html">Contatti</a></li>
-						<li>
-								<a href="login.html" class="icon fa-angle-down">Login</a>
-								<ul>
-									<li><a href="register.html">Registrati</a></li>
-								</ul>
-							</li>
-					</ul>
-				</nav>
-			</header>
-
-			
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h2></h2>
-					<p>Benvenuto nel nostro studio! Vienici a trovare!</p>
-					<ul class="actions">
-						<li><a href="login.html" class="button big scrolly">Prenota una visita!</a></li>
-					</ul>
-				</div>
-			</section>
-		
-		<!-- One -->
-			<section id="one" class="wrapper style1">
-				<div class="container">
-					<header class="major">
-						<h2>Perchè è importante essere un dentista TECNOLOGICO?</h2>
-						<p>Il nostro studio bla bla bla<br />
-						<br />
-						</p>
-					</header>
-					<div class="slider">
-						<span class="nav-previous"></span>
-						<div class="viewer">
-							<div class="reel">
-								<div class="slide">
-									<img src="images/slide01.jpg" alt="" />
-								</div>
-								<div class="slide">
-									<img src="../foto/studio_medico_dentistico_alberto_de_biase_22.jpg" alt="" />
-								</div>
-								<div class="slide">
-									<img src="../foto/download.jpeg" alt="" />
-								</div>
-							</div>
-						</div>
-						<span class="nav-next"></span>
-					</div>
-				</div>
-			</section>
-
-
-
-
-
-			
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-				</ul>
-				<ul class="menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Contatti</a></li>
-				</ul>
-				<span class="copyright">
-					LTW Project: Riccardo Caprari & Francesco Douglas
-				</span>
-			</footer>
-
-	</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAECwuXccbVZAskUnxxMQlUj3GKoxBEz4&callback=initMap">
+    </script>
+  </body>
 </html>
