@@ -99,7 +99,7 @@
                                              <input type="text" name="CF" value="" placeholder="Codice Fiscale" required/>
                                         </div>
                                         <!-- MI SERVE UNA CSS PER IL CAMPO DATA -->
-                                        <div class="12u">
+                                        <div class="4u 12u(1)   ">
                                                 <input type="date" name="birthday" value="" placeholder="Data di nascita" required/>
                                             </div>
     
@@ -121,23 +121,29 @@
                                         </div>
                                     </div>
                                     <div class="row uniform">
-                                        <div class="4u 12u(2)">
-                                            <input type="radio" id="newUser" name="newUser" checked>
-                                            <label for="priority-low">Nuovo Cliente</label>
+                                                                          
+                                        <div class="4u 12u(1)">
+                                            <input type="radio" id="oldUser" name="User" required>
+                                            <label for="oldUser">Vecchio Cliente</label>
+
+                                            <input type="radio" id="newUser" name="User">
+                                            <label for="newUser">Nuovo Cliente</label>
                                         </div>
-                                        <div class="4u 12u(2)">
-                                            <input type="radio" id="oldUser" name="oldUser">
-                                            <label for="priority-normal">Vecchio Cliente</label>
-                                        </div>
+                                        
                                        
                                     </div>
                                     <div class="row uniform">
-                                        <div class="6u">
+                                        <div class="6u 12u(1)">
                                             <input type="checkbox" id="copy" name="copy">
                                             <label for="copy">Mandami una copia di questo mail</label>
                                         </div>
-                                    
+                                     <div class="row uniform">
+                                                <div class="4u 12u(1)">
+                                                    <input type="checkbox" id="privacyCondition" name="privacyCondition" required>
+                                                    <label for="privacyCondition">Accetto termini e condizioni</label>
+                                                </div>
                                     </div>
+
                                     <div class="row uniform">
                                         <div class="12u">
                                             <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
