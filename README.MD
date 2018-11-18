@@ -1,1 +1,4 @@
-questo e' un readme di prova 
+Progetto per LTW
+
+Caprari Riccardo
+Douglas Francesco
