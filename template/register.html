@@ -42,14 +42,7 @@
                 if(window.confirm("Registrazione pronta, vuoi proseguire?")==true){
                     
                     window.alert("sono pronto ad iniziare la register sessione");
-                    window.alert(document.registerForm.email.value);
-                    window.alert(document.registerForm.name.value);
-                    window.alert(document.registerForm.surname.value);
-                    window.alert(document.registerForm.password);
-                    window.alert(document.registerForm.CF);
-                    window.alert(document.registerForm.birthday);
-                    window.alert(document.registerForm.email);
-                    window.alert(document.registerForm.phoneNumber);
+                    
                     if(RegisterUser(document.registerForm.email.value,document.registerForm.name.value,document.registerForm.surname.value,document.registerForm.password.value,document.registerForm.phoneNumber.value,document.registerForm.address.value,document.registerForm.CF.value,document.registerForm.birthday.value,document.registerForm.birthcountry.value));
     
                     return false;

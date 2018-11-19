@@ -12,13 +12,20 @@ function isRegistered(email) {
 
 function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
     window.alert("sono la registerUser");
-    
-    var persona =(JSON.stringify(Nome),JSON.stringify(Cognome),JSON.stringify(Password),JSON.stringify(NumerodiTelefono),JSON.stringify(Indirizzo),JSON.stringify(CodiceFiscale),JSON.stringify(DatadiNascita),JSON.stringify(LuogodiNascita));    
+    /*
+    legenda per accedere ai campi del file json
+    'nome'
+    'cognome'
+    'password'
+    'numeroditelefono'
+    'indirizzo'
+    'codicefiscale'
+    'datadinascita'
+    'luogodinascita'
+    */
+    var persona ={'nome':JSON.stringify(Nome),'cognome':JSON.stringify(Cognome),'password':JSON.stringify(Password),'numeroditelefono':JSON.stringify(NumerodiTelefono),'indirizzo':JSON.stringify(Indirizzo),'codicefiscale':JSON.stringify(CodiceFiscale),'datadinascita':JSON.stringify(DatadiNascita),'luogodinascita':JSON.stringify(LuogodiNascita)};    
     window.alert("e tempo di settare nello storage");
     localStorage.setItem(JSON.stringify(mail),JSON.stringify(persona));
-    window.alert(persona);
-    window.alert(JSON.stringify(persona));
-
     return true;
 }
 

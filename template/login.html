@@ -22,9 +22,18 @@
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	
-		<script language="JavaScript">
+		
+		<!--JS nostri per controllo della form-->
+        <script type="text/javascript" src="js/database.js"></script>
+
+
+		<script language="JavaScript" type="text/javascript">
 			function setLogged() {
+				
+				if(!isRegistered(document.form.email.value)){
+				  window.alert("Nome utente o password errate");
+				 return false;
+				}
 				var miamail = document.form.email.value;
 				var item= localStorage.getItem(miamail);
 				var myjson= JSON.parse(item);
@@ -83,7 +92,7 @@
 						<h3>Login</h3>
 						
 						<section>
-                                <form method="post"  action="aut.php" name="form" onSubmit="return setLogged();">
+                                <form method="post"  action="aut.php" name="form" onsubmit="return setLogged();">
 										<div class="row uniform">
                                         
 												<div class="6u 12u(3)">
