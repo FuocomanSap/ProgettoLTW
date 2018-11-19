@@ -40,9 +40,19 @@
                     return false;
                 }
                 if(window.confirm("Registrazione pronta, vuoi proseguire?")==true){
-                    //RegisterUser(document.registerForm);
-                      RegisterUser();
-                    return true;
+                    
+                    window.alert("sono pronto ad iniziare la register sessione");
+                    window.alert(document.registerForm.email.value);
+                    window.alert(document.registerForm.name.value);
+                    window.alert(document.registerForm.surname.value);
+                    window.alert(document.registerForm.password);
+                    window.alert(document.registerForm.CF);
+                    window.alert(document.registerForm.birthday);
+                    window.alert(document.registerForm.email);
+                    window.alert(document.registerForm.phoneNumber);
+                    if(RegisterUser(document.registerForm.email.value,document.registerForm.name.value,document.registerForm.surname.value,document.registerForm.password.value,document.registerForm.phoneNumber.value,document.registerForm.address.value,document.registerForm.CF.value,document.registerForm.birthday.value,document.registerForm.birthcountry.value));
+    
+                    return false;
                 }
 
                 else{
@@ -162,10 +172,10 @@
                                     <div class="row uniform">
                                                                           
                                         <div class="4u 12u(1)">
-                                            <input type="radio"  name="User" required>
+                                            <input type="radio" id="oldUser" name="User" required>
                                             <label for="oldUser">Vecchio Cliente</label>
 
-                                            <input type="radio"  name="User">
+                                            <input type="radio" id="newUser" name="User">
                                             <label for="newUser">Nuovo Cliente</label>
                                         </div>
                                         
@@ -173,13 +183,13 @@
                                     </div>
                                     <div class="row uniform">
                                         <div class="6u 12u(1)">
-                                            <input type="checkbox" name="copy">
+                                            <input type="checkbox"id="copy" name="copy">
                                             <label for="copy">Mandami una copia di questo mail</label>
                                         </div>
                                     </div>
                                      <div class="row uniform">
                                                 <div class="6u 12u(1)">
-                                                    <input type="checkbox"  name="privacyCondition" required>
+                                                    <input type="checkbox" id="privacyCondition" name="privacyCondition" required>
                                                     <label for="privacyCondition">Accetto termini e condizioni</label>
                                                 </div>
                                     </div>

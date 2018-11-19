@@ -1,6 +1,6 @@
 function isRegistered(email) {
     
-    var x = localStorage.getItem(email);
+    var x = localStorage.getItem(JSON.stringify(email));
     //mi server solo per debuggare
     if(email=='Test@test.it') return true;
     //finito il debug
@@ -10,10 +10,12 @@ function isRegistered(email) {
     return true;
 }
 
-function RegisterUser(){
-     
-    var persona = ('Nome':document.registerForm.name.value,'Cognome':( document.registerForm.urname.value), 'Password': document.registerForm.password.value,'Numero di Telefono': document.registerForm.phoneNumber.value,'Indirizzo': document.registerForm.address.value, 'Codice Fiscale': document.registerForm.CF.value,'Data di Nscita': document.registerForm.birthday.value,'Luogo di Nascita': document.registerForm.birthcountry.value,'Esenzione': document.registerForm.category.value);
-    localStorage.setItem(form.email.value,JSON.stringify(persona));
+function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
+    window.alert("sono la registerUser");
+    
+    var persona =(JSON.stringify(Nome),JSON.stringify(Cognome),JSON.stringify(Password),JSON.stringify(NumerodiTelefono),JSON.stringify(Indirizzo),JSON.stringify(CodiceFiscale),JSON.stringify(DatadiNascita),JSON.stringify(LuogodiNascita));    
+    window.alert("e tempo di settare nello storage");
+    localStorage.setItem(JSON.stringify(mail),JSON.stringify(persona));
     window.alert(persona);
     window.alert(JSON.stringify(persona));
 
