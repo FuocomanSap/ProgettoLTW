@@ -22,6 +22,22 @@
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	
+		<script language="JavaScript">
+			function setLogged() {
+				var miamail = document.form.email.value;
+				var item= localStorage.getItem(miamail);
+				var myjson= JSON.parse(item);
+				
+				var name= myjson.nome;
+				var cognome= myjson.cognome;
+				var dati= {'nomelog': name, 'cognomelog': cognome};
+				localStorage.setItem("logged",JSON.stringify(dati));
+				return true;
+			}
+		</script>
+	
+	
 	</head>
 	<body class="landing">
 
@@ -67,11 +83,11 @@
 						<h3>Login</h3>
 						
 						<section>
-                                <form method="post"  action="aut.php">
+                                <form method="post"  action="aut.php" name="form" onSubmit="return setLogged();">
 										<div class="row uniform">
                                         
 												<div class="6u 12u(3)">
-													<input type="email" name="email" id="email" value="" placeholder="Email"  required/>
+													<input type="email" name="email" value="" placeholder="Email"  required/>
 												</div>
 		
 												<div class="6u 12u(3)">
