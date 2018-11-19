@@ -1,10 +1,7 @@
 function isRegistered(email) {
     
-    var x = localStorage.getItem(JSON.stringify(email));
-    //mi server solo per debuggare
-    //if(email=='Test@test.it') return true;
-    //finito il debug
-    if(x == null) {
+    var x = localStorage.getItem(email);
+    if(x === null) {
         return false;
     }
     return true;
