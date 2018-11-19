@@ -1,6 +1,10 @@
 function isRegistered(email) {
+    
     var x = localStorage.getItem(email);
-    if(x == "") {
+    //mi server solo per debuggare
+    if(email=='Test@test.it') return true;
+    //finito il debug
+    else if(x == null) {
         return false;
     }
     return true;
