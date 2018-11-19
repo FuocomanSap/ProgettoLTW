@@ -19,7 +19,19 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
+        </noscript>
+        <script type="text/javascript">
+            function valida_form_register(){
+                if (document.registerForm.password.value!=document.registerForm.passwordX2.value){
+                    window.alert("Le password dfferiscono, riprovare.");
+                    return false
+                }
+                return true
+            
+            }
+            </script>
+
+
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -67,7 +79,7 @@
 					<header class="major">
                         <h2>REGISTRATI QUI</h2>
                         <section>
-                                <form method="post" action="#">
+                                <form method="post" action="" name="registerForm" onsubmit="return valida_form_register();">
                                     <div class="row uniform">
                                         <div class="6u 12u(3)">
                                             <input type="text" name="name" id="name" value="" placeholder="Nome" required/>
@@ -89,7 +101,7 @@
                                                
 
                                         <div class="6u 12u(3)">
-                                            <input type="text" name="phoneNumber" value="" placeholder="Numero di telefono" required/>
+                                            <input type="number" name="phoneNumber" value="" placeholder="Numero di telefono" required/>
                                         </div>
                                         <div class="6u 12u(3)">
                                                 <input type="text" name="address" value="" placeholder="Indirizzo" required/>
@@ -116,7 +128,7 @@
                                     <div class="row uniform">
                                         <div class="12u">
                                             <div class="select-wrapper">
-                                                <select name="category" id="category">
+                                                <select name="category" id="category" required>
                                                     <option value="">- Riduzione -</option>
                                                     <option value="1">Studente</option>
                                                     <option value="2">Assicurazione</option>
