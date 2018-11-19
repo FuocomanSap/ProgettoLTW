@@ -40,7 +40,8 @@
                     return false;
                 }
                 if(window.confirm("Registrazione pronta, vuoi proseguire?")==true){
-                    RegisterUser(document.registerForm);
+                    //RegisterUser(document.registerForm);
+                      RegisterUser();
                     return true;
                 }
 
@@ -102,13 +103,13 @@
                                 <form method="post" action="" name="registerForm" onsubmit="return valida_form_register();">
                                     <div class="row uniform">
                                         <div class="6u 12u(3)">
-                                            <input type="text" name="name" id="name" value="" placeholder="Nome" required/>
+                                            <input type="text" name="name"  value="" placeholder="Nome" required/>
                                         </div>
                                         <div class="6u 12u(3)">  
                                             <input type="text" name="surname" value="" placeholder="Cognome" required />
                                         </div>
                                         <div class="6u 12u(3)">
-                                            <input type="email" name="email" id="email" value="" placeholder="Email"  required/>
+                                            <input type="email" name="email"  value="" placeholder="Email"  required/>
                                         </div>
 
                                         <div class="3u 12u(3)">
@@ -148,7 +149,7 @@
                                     <div class="row uniform">
                                         <div class="12u">
                                             <div class="select-wrapper">
-                                                <select name="category" id="category" required>
+                                                <select name="category"  required>
                                                     <option value="">- Riduzione -</option>
                                                     <option value="1">Studente</option>
                                                     <option value="2">Assicurazione</option>
@@ -161,10 +162,10 @@
                                     <div class="row uniform">
                                                                           
                                         <div class="4u 12u(1)">
-                                            <input type="radio" id="oldUser" name="User" required>
+                                            <input type="radio"  name="User" required>
                                             <label for="oldUser">Vecchio Cliente</label>
 
-                                            <input type="radio" id="newUser" name="User">
+                                            <input type="radio"  name="User">
                                             <label for="newUser">Nuovo Cliente</label>
                                         </div>
                                         
@@ -172,20 +173,20 @@
                                     </div>
                                     <div class="row uniform">
                                         <div class="6u 12u(1)">
-                                            <input type="checkbox" id="copy" name="copy">
+                                            <input type="checkbox" name="copy">
                                             <label for="copy">Mandami una copia di questo mail</label>
                                         </div>
                                     </div>
                                      <div class="row uniform">
                                                 <div class="6u 12u(1)">
-                                                    <input type="checkbox" id="privacyCondition" name="privacyCondition" required>
+                                                    <input type="checkbox"  name="privacyCondition" required>
                                                     <label for="privacyCondition">Accetto termini e condizioni</label>
                                                 </div>
                                     </div>
 
                                     <div class="row uniform">
                                         <div class="12u">
-                                            <textarea name="message" id="message" placeholder="Inserisci qui le tue comunicazioni" rows="6"></textarea>
+                                            <textarea name="message"  placeholder="Inserisci qui le tue comunicazioni" rows="6"></textarea>
                                         </div>
                                     </div>
                                     <div class="row uniform">
