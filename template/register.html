@@ -39,10 +39,15 @@
                     window.alert("Le password dfferiscono, riprovare.");
                     return false;
                 }
-                if(window.confirm("Registrazione pronta, vuoi proseguire?")) return true;
+                if(window.confirm("Registrazione pronta, vuoi proseguire?")==true){
+                    RegisterUser(document.registerForm);
+                    return true;
+                }
 
-                else return false;
-            
+                else{
+                    
+                    return false;
+                }
                 }
             </script>
 

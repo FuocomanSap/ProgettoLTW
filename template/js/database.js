@@ -10,6 +10,14 @@ function isRegistered(email) {
     return true;
 }
 
+function RegisterUser(form){
+    window.alert(form);
+    return true;
+
+
+
+}
+
 function whoIsLogged() {
     return localStorage.getItem(logged);
 }
