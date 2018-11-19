@@ -6,37 +6,22 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
     <meta name="keywords" content="" />
-    
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrollgress.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.slidertron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-    </noscript>
-    
-
+		
+		
     <!--codeofrclinic-->
     <link type="text/css" rel="stylesheet" href="CartellaClinica/css/blue.css" />
-<link type="text/css" rel="stylesheet" href="CartellaClinica/css/print.css" media="print"/>
+		<link type="text/css" rel="stylesheet" href="CartellaClinica/css/print.css" media="print"/>
 
     <script type="text/javascript" src="CartellaClinica/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/jquery.tipsy.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/cufon.yui.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/scrollTo.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/myriad.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/jquery.colorbox.js"></script>
-<script type="text/javascript" src="CartellaClinica/js/custom.js"></script>
-<script type="text/javascript">
-		Cufon.replace('h1,h2');
-</script>
+		<script type="text/javascript" src="CartellaClinica/js/jquery.tipsy.js"></script>
+		<script type="text/javascript" src="CartellaClinica/js/cufon.yui.js"></script>
+		<script type="text/javascript" src="CartellaClinica/js/scrollTo.js"></script>
+		<script type="text/javascript" src="CartellaClinica/js/myriad.js"></script>
+		<script type="text/javascript" src="CartellaClinica/js/jquery.colorbox.js"></script>
+		<script type="text/javascript" src="CartellaClinica/js/custom.js"></script>
+		<script type="text/javascript">
+				Cufon.replace('h1,h2');
+		</script>
 
 
 
@@ -48,48 +33,14 @@
 	<body class="landing">
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-					<h1 >
-						<a href="index.html">
-                Torna alla Home<iframe type="image" src="images/tooth.png" width="1" height="1" ></iframe>
-						
-						
-						</a>
-					</h1>
 				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="chisiamo.html">Chi siamo</a></li>
-						<li><a href="dovesiamo.html">Dove siamo</a></li>
-						<li><a href="contatti.html">Contatti</a></li>
-						<li>
-								<a href="myaccount.html" class="icon fa-angle-down"> Benvenuto, <span id="log"></span> </a>
-								<ul>
-									<li><a href="prenota.html">Prenota una visita</a></li>
-									<li><a href="/template/CartellaClinica/">La mia cartella</a></li>
-									<li><a href="impostazioni.html">Impostazioni</a></li>
-								</ul>
-							</li>
-					</ul>
+					<br> 
+					<br>
+					<!--<button onclick="myaccount.html" style="margin-left: 40px;"><a  style="color:gray; font-size: 150%;">Torna al tuo profilo</a></button>-->
+					<form action="javascript:history.back()">
+						<input type="submit"  value="Torna indietro" style="height: 40px; border: solid 1px; margin-right: 40px">
+					</form>
 				</nav>
-
-				<script language="JavaScript">
-						function prendiNome(){
-							var parameters = location.search.substring(1).split("&");
-					
-							var temp = parameters[0].split("=");
-							l = unescape(temp[1]);
-					
-							document.getElementById("log").innerHTML = l;
-							
-							temp = parameters[1].split("=");
-							c = unescape(temp[1]);
-							
-							if(c!="kQ94is3PRPPgry01JK2e"){
-								window.location.href = "index.html";
-							}
-						}
-						prendiNome();
-					</script>
 
 			</header>
 
@@ -104,26 +55,50 @@
         <div id="paper-mid">
           <div class="entry">
             <!-- Begin Image -->
-            <img class="portrait" src="CartellaClinica/images/Dentista_default.jpg" alt="User" />
+            <img class="portrait" src="CartellaClinica/images/user_image.png" alt="User" />
             <!-- End Image -->
             <!-- Begin Personal Information -->
             <div class="self">
-              <h1 class="name"><span id="UserName">UserNAme</span> 
-              <h1 class="name"><span id="UserSurName">UserSurNAme</span> 
-              </h1>
+								<h1 class="name">	<span id="nome"></span> </h1> 
+              	<h1 class="name"> <span id="cognome"></span> </h1>
+
+							<script language="JavaScript">
+									function prendiNome(){
+										var parameters = location.search.substring(1).split("&");
+								
+										var temp = parameters[0].split("=");
+										l = unescape(temp[1]);
+								
+										document.getElementById("nome").innerHTML = l;
+										
+										temp = parameters[1].split("=");
+										c = unescape(temp[1]);
+			
+										document.getElementById("cognome").innerHTML = c;
+			
+										temp = parameters[2].split("=");
+										k = unescape(temp[1]);
+			
+										if(k!="kQ94is3PRPPgry01JK2e"){
+											window.location.href = "index.html";
+										}
+									}
+									prendiNome();
+								</script>
+		
               <ul>
                 <h1><span>Informazioni di contatto:</span></h1>
-                <li class="ad" ><span id="ad">non so come accedere a questi campi da php </span></li>
-                <li class="mail"><span id="mail"></span></li>
-                <li class="tel"><span id="telephone"></span></li>
-                
+                <li class="ad" ><span id="city">Roma</span></li>
+                <li class="mail"><span id="mail">test@gmail.com</span></li>
+                <li class="tel"><span id="telephone">+39 123456789</span></li>
+						
               </ul>
-            </div>
+          </div>
             <!-- End Personal Information -->
             <!-- Begin Social -->
             <div class="social">
               <ul>
-                <li><a class='north' href="index.html" title="Download .pdf"><img src="CartellaClinica/images/icn-save.jpg" alt="Download the pdf version" /></a></li>
+                <li><a class='north' href="CartellaClinica/images/cartelellaclinicafake.png" title="Scarica cartella" download="cartella"><img src="CartellaClinica/images/icn-save.jpg" /></a></li>
                </ul>
             </div>
             <!-- End Social -->
@@ -131,13 +106,13 @@
           <!-- Begin 1st Row -->
           <div class="entry">
             <h2>Note del Medico</h2>
-            <p><class="mail"><span id="note">prova</span></p>
+            <p><class="mail"><span id="note">Effettuare un controllo ogni mese</span></p>
           </div>
           <!-- End 1st Row -->
          
            <!-- Begin 5th Row -->
           <div class="entry">
-          <h2>WORKS</h2>
+          <h2>Cartella Clinica</h2>
             <ul class="works">
               <li><a href="CartellaClinica/images/cartelellaclinicafake.png" rel="gallery" title="Cartella Clinica"><img src="CartellaClinica/images/cartelellaclinicafake.png" alt="" /></a></li>
               <li><a href="CartellaClinica/images/cartelellaclinicafake.png" rel="gallery" title="Cartella Clinica"><img src="CartellaClinica/images/cartelellaclinicafake.png" alt="" /></a></li>
@@ -154,23 +129,6 @@
   </div>
   <div id="message"><a href="#top" id="top-link">Go to Top</a></div>
   <!-- End Wrapper -->
-			
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-				</ul>
-				<ul class="menu">
-					<li><a href="index.html">Home</a></li>
-
-					<li><a href="contatti.html">Contatti</a></li>
-				</ul>
-				<span class="copyright">
-					LTW Project: Riccardo Caprari & Francesco Douglas
-				</span>
-			</footer>
 
 	</body>
 </html>
