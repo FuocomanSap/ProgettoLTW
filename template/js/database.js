@@ -1,5 +1,4 @@
 function isRegistered(email) {
-    
     var x = localStorage.getItem(email);
     if(x === null) {
         return false;

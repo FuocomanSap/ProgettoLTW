@@ -30,13 +30,12 @@
 		<script language="JavaScript" type="text/javascript">
 			function setLogged() {
 				
+
 				if(!(isRegistered(document.form.email.value))) {
 					window.alert("Non esiste un account con questa mail!");
 					return false;
 				}
 				
-				
-				//window.alert("utente riconosciuto");
 				var miamail = document.form.email.value;
 				var item= localStorage.getItem(miamail);
 				var myjson= JSON.parse(item);
