@@ -29,19 +29,26 @@
 
 		<script language="JavaScript" type="text/javascript">
 			function setLogged() {
-				
-				if(!isRegistered(document.form.email.value)){
-				  window.alert("Nome utente o password errate");
-				 return false;
+				/*
+				if(isRegistered(document.form.email.value)){
+					window.alert("Non esiste un account con questa mail!");
+					return false;
 				}
-				window.alert("utente riconosciuto");
+				*/
+				
+				//window.alert("utente riconosciuto");
 				var miamail = document.form.email.value;
 				var item= localStorage.getItem(miamail);
 				var myjson= JSON.parse(item);
 				
-				var name= myjson.nome;
+				if(document.form.password.value != myjson.password) {
+					alert("La password inserita non è corretta!");
+					return false;
+				}
+
+				var nome= myjson.nome;
 				var cognome= myjson.cognome;
-				var dati= {'nomelog': name, 'cognomelog': cognome};
+				var dati= {'nomelog': nome, 'cognomelog': cognome};
 				localStorage.setItem("logged",JSON.stringify(dati));
 				return true;
 			}
