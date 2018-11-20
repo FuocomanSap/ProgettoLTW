@@ -7,16 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
-    
+
+    <script type="text/javascript" lang="javascript" src="js/database.js"></script>	
 </head>
 <body>
 
-    <script type="text/javascript">
-            var x = localStorage.getItem("Emanuele.giacomini@gmail.com");
-            window.alert(x);
-            localStorage.setItem("Emanuele.giacomini@gmail.com",JSON.stringify("testo bello figo"));
-            var x = localStorage.getItem("Test@test.it");
-            window.alert(x);
+        <script type="text/javascript" lang="javascript">
+         window.alert("oddio");
+         
+        </script>
+
+        <script type="text/javascript" lang="javascript">
+            
+            var ADMIN = localStorage.getItem("ADMIN");
+            var infoAdmin = JSON.parse(ADMIN);
+            window.alert(infoAdmin.mail);
+            window.alert("dottore settato");
+
+            
 
         </script>
     

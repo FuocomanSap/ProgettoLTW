@@ -20,7 +20,7 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     'luogodinascita'    
     */
     var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita};    
-    window.alert("e tempo di settare nello storage");
+    //window.alert("e tempo di settare nello storage");
     localStorage.setItem(mail,JSON.stringify(persona));
     return true;
     
@@ -87,3 +87,61 @@ function popolaCartellaClinica() {
     document.getElementById("datanascita").innerHTML = mydati.datadinascita;
     document.getElementById("luogonascita").innerHTML = mydati.luogodinascita;
 }
+
+
+
+
+//funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
+function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
+    window.alert("sono la registerAdmin");
+    /*
+    legenda per accedere ai campi del file json
+    'nome'
+    'cognome'
+    'password'
+    'numeroditelefono'
+    'indirizzo'
+    'codicefiscale'
+    'datadinascita'
+    'luogodinascita'    
+    */
+    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': [ "null"]};    
+    localStorage.setItem(mail,JSON.stringify(persona));
+    return true;
+    
+}
+
+//funzione che aggiunge una variabikle globale ADMIN per avere accesso alla mail del dottore quando voglio
+function setAdmin(email){
+    var info = {'mail':email};
+    localStorage.setItem('ADMIN',JSON.stringify(info));
+   return true;
+
+}
+
+
+//funzione che genera in automatico il Dottore (per assenza del backend)
+function initAdmin(){
+    if(isRegistered("doctor@identistcare.com")){
+      return true;
+    }
+    else {
+        RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma");
+        setAdmin('doctor@identistcare.com');
+        return true;
+    }
+
+}
+
+
+
+// fuzione che all'avvio richiede se si vuole pulire il local storage
+function clearAllLocalStorage(){
+   //return true; //commetare questo per poter ripulire lo storage
+    if(window.confirm("vuoi ripulire il local storage?")){
+        localStorage.clear();
+        window.alert("all clean :)");
+    }
+}
+
+
