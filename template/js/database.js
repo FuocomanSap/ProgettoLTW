@@ -20,8 +20,21 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     'luogodinascita'    
     */
     var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita};    
-    //window.alert("e tempo di settare nello storage");
     localStorage.setItem(mail,JSON.stringify(persona));
+
+    //ogni volta che aggiunto un utente esso dovra apaprarie nell'array del dottore
+    window.alert("devo aggiungere l'utente al professore");
+    var Admin = localStorage.getItem("ADMIN");
+    window.alert("1");
+    var mailAdmin = (JSON.parse(dott)).mail;
+    window.alert("2");
+    var dott = localStorage.getItem(mailAdmin);
+    window.alert("3");
+    var listaClienti = JSON.parse(dott).Clienti
+    window.alert("4");
+    listaClienti.push(mail);
+    window.alert("5");
+
     return true;
     
 }
@@ -93,7 +106,6 @@ function popolaCartellaClinica() {
 
 //funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
 function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
-    window.alert("sono la registerAdmin");
     /*
     legenda per accedere ai campi del file json
     'nome'
@@ -128,6 +140,7 @@ function initAdmin(){
     else {
         RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma");
         setAdmin('doctor@identistcare.com');
+        window.alert("dottore creato e caricato in memoria");
         return true;
     }
 
@@ -140,7 +153,7 @@ function clearAllLocalStorage(){
    //return true; //commetare questo per poter ripulire lo storage
     if(window.confirm("vuoi ripulire il local storage?")){
         localStorage.clear();
-        window.alert("all clean :)");
+        
     }
 }
 
