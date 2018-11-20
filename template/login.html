@@ -26,32 +26,8 @@
 		<!--JS nostri per controllo della form-->
         <script type="text/javascript" src="js/database.js"></script>
 
-
-		<script language="JavaScript" type="text/javascript">
-			function setLogged() {
-				
-
-				if(!(isRegistered(document.form.email.value))) {
-					window.alert("Non esiste un account con questa mail!");
-					return false;
-				}
-				
-				var miamail = document.form.email.value;
-				var item= localStorage.getItem(miamail);
-				var myjson= JSON.parse(item);
-				
-				if(document.form.password.value != myjson.password) {
-					alert("La password inserita non è corretta!");
-					return false;
-				}
-
-				var nome= myjson.nome;
-				var cognome= myjson.cognome;
-				var dati= {'nomelog': nome, 'cognomelog': cognome};
-				localStorage.setItem("logged",JSON.stringify(dati));
-				return true;
-			}
-		</script>
+        <script type="text/javascript" lang="javascript" src="js/database.js"></script>
+		
 	
 	
 	</head>

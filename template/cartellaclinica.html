@@ -23,11 +23,8 @@
 				Cufon.replace('h1,h2');
 		</script>
 
+    <script type="text/javascript" lang="javascript" src="js/database.js"></script>
 
-
-
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	
 	<body class="landing">
@@ -62,37 +59,16 @@
 								<h1 class="name">	<span id="nome"></span> </h1> 
               	<h1 class="name"> <span id="cognome"></span> </h1>
 
-							<script language="JavaScript">
-									function prendiNome(){
-										var parameters = location.search.substring(1).split("&");
-								
-										var temp = parameters[0].split("=");
-										l = unescape(temp[1]);
-								
-										document.getElementById("nome").innerHTML = l;
-										
-										temp = parameters[1].split("=");
-										c = unescape(temp[1]);
-			
-										document.getElementById("cognome").innerHTML = c;
-			
-										temp = parameters[2].split("=");
-										k = unescape(temp[1]);
-			
-										if(k!="kQ94is3PRPPgry01JK2e"){
-											window.location.href = "index.html";
-										}
-									}
-									prendiNome();
-								</script>
-		
               <ul>
-                <h1><span>Informazioni di contatto:</span></h1>
-                <li class="ad" ><span id="city">Roma</span></li>
-                <li class="mail"><span id="mail">test@gmail.com</span></li>
-                <li class="tel"><span id="telephone">+39 123456789</span></li>
-						
+                <h1><span>I miei dati:</span></h1>
+                <li class="ad" ><span id="indirizzo"></span></li>
+                <li><span id="luogonascita"></span> <span id="datanascita"></span> </li>
+                <!--<li class="mail"><span id="mail">test@gmail.com</span></li>-->
+                <li class="tel"><span id="telefono"></span></li>
+                <li >CF: <span id="codicefisc"></span></li>
               </ul>
+
+              <script language="JavaScript"> popolaCartellaClinica(); </script>
           </div>
             <!-- End Personal Information -->
             <!-- Begin Social -->
@@ -106,7 +82,7 @@
           <!-- Begin 1st Row -->
           <div class="entry">
             <h2>Note del Medico</h2>
-            <p><class="mail"><span id="note">Effettuare un controllo ogni mese</span></p>
+            <p><span id="note">Effettuare un controllo ogni mese</span></p>
           </div>
           <!-- End 1st Row -->
          

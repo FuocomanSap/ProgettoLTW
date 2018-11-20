@@ -21,8 +21,9 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		
+		<script type="text/javascript" lang="javascript" src="js/database.js"></script>		
+
 	</head>
 	
 	<body class="landing">
@@ -41,7 +42,7 @@
 						<li><a href="dovesiamo.html">Dove siamo</a></li>
 						<li><a href="contatti.html">Contatti</a></li>
 						<li>
-								<a id="paginacorrente" href="index.html" class="icon fa-angle-down"> Benvenuto, <span id="log"></span> </a>
+								<a id="paginacorrente" href="index.html" class="icon fa-angle-down"> Benvenuto, Dr. <span id="log"></span> </a>
 								
 								<script type="text/javascript">
 									window.onload = function(){
@@ -49,39 +50,18 @@
 										document.getElementById("paginahome").href = window.location.toString();
                                         document.getElementById("logohome").href = window.location.toString();
                                     }
-									</script>
+								</script>
 								
 								<ul>
 									<li><a id="next" href="index.html">I miei pazienti</a></li>
 									<li><a href="impostazioni.html">Impostazioni</a></li>
-									<li><a href="index.html">Logout</a></li>
+									<li><a href="index.html" onclick="removeLogged()">Logout</a></li>
 								</ul>
 							</li>
 					</ul>
 				</nav>
 
-				<script language="JavaScript">
-						function prendiNome(){
-							var parameters = location.search.substring(1).split("&");
-						
-							var temp = parameters[0].split("=");
-							l = unescape(temp[1]);
-					
-							document.getElementById("log").innerHTML = l;
-							
-							temp = parameters[1].split("=");
-							c = unescape(temp[1]);
-							
-							if(c!="kQ94is3PRPPgry01JK2e"){
-								window.location.href = "index.html";
-							}
-
-                            if(l == "Dr. Francesco") {
-                                document.getElementById("next").href = "doctorpage.html";
-                            }
-						}
-						prendiNome();
-					</script>
+				<script language="JavaScript"> setNomeAdmin(); </script>
 
 			</header>
 
