@@ -40,8 +40,8 @@
                     return false;
                 }
                 if(window.confirm("Registrazione pronta, vuoi proseguire?")==true){
-                    if(RegisterUser(document.registerForm.email.value,document.registerForm.name.value,document.registerForm.surname.value,document.registerForm.password.value,document.registerForm.phoneNumber.value,document.registerForm.address.value,document.registerForm.CF.value,document.registerForm.birthday.value,document.registerForm.birthcountry.value));
-                    return false;
+                    if(RegisterUser(document.registerForm.email.value,document.registerForm.name.value,document.registerForm.surname.value,document.registerForm.password.value,document.registerForm.phoneNumber.value,document.registerForm.address.value,document.registerForm.CF.value,document.registerForm.birthday.value,document.registerForm.birthcountry.value)) return true;
+                    else return false;
                 }
 
                 else{
