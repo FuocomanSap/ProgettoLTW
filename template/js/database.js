@@ -18,8 +18,9 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     'codicefiscale'
     'datadinascita'
     'luogodinascita'    
+    'mail'
     */
-    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita};    
+    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'email':mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
 
     //ogni volta che aggiunto un utente esso dovra apaprarie nell'array del dottore
@@ -29,7 +30,7 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     var dott = localStorage.getItem(mailAdmin);
     var listaClienti = JSON.parse(dott).Clienti
     listaClienti.push(mail);
-    
+    //window.alert("utente aggiunto alla lista del dottore");
     return true;
     
 }
@@ -113,7 +114,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     'luogodinascita'    
     'Clienti' di tipo vettore
     */
-    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': [ "null"]};    
+    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': ["null"], 'email' : mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
     return true;
     
@@ -152,5 +153,41 @@ function clearAllLocalStorage(){
         
     }
 }
+//funzione che stora in memoria la data di prenotazione
+function storeDate(data){
+        localStorage.setItem(data,JSON.stringify("Prenotato"));
 
+
+}
+
+//funzione che verefica se la data della prenotazione e' disponibile
+function dataIsfree(data){
+    if(data==="1111-11-11" || isRegistered(data )) return false;
+    else {
+        storeDate(data);   
+        return true;
+    }
+
+}
+//funzoine che manda una mail al destinatario con body
+
+function sendMailto(email,body){
+    
+    
+
+    window.open("mailto:"+email+'&subject='+"Prenotazione Visita"+'&body='+body);
+    
+    return true;
+
+}
+
+//funzione che prende l'attuale mail del cliente
+function getCurrentMail(){
+   
+    var item= localStorage.getItem("logged");
+    var mydati= JSON.parse(item);
+   
+    return mydati.email;
+
+}
 
