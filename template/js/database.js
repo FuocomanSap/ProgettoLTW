@@ -111,6 +111,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     'codicefiscale'
     'datadinascita'
     'luogodinascita'    
+    'Clienti' di tipo vettore
     */
     var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': [ "null"]};    
     localStorage.setItem(mail,JSON.stringify(persona));
