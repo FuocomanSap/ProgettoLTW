@@ -23,18 +23,13 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     localStorage.setItem(mail,JSON.stringify(persona));
 
     //ogni volta che aggiunto un utente esso dovra apaprarie nell'array del dottore
-    window.alert("devo aggiungere l'utente al professore");
+    
     var Admin = localStorage.getItem("ADMIN");
-    window.alert("1");
-    var mailAdmin = (JSON.parse(dott)).mail;
-    window.alert("2");
+    var mailAdmin = (JSON.parse(Admin)).mail;
     var dott = localStorage.getItem(mailAdmin);
-    window.alert("3");
     var listaClienti = JSON.parse(dott).Clienti
-    window.alert("4");
     listaClienti.push(mail);
-    window.alert("5");
-
+    
     return true;
     
 }
