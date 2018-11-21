@@ -30,16 +30,15 @@
         <p id="demo"></p>
         <script lenguage="JavaScript">
             var Admin = localStorage.getItem("ADMIN");
-            var mailAdmin = (JSON.parse(Admin)).mail;
-            var dott = localStorage.getItem(mailAdmin);
-            alert(dott);
-            var listaClienti = JSON.parse(dott).Clienti
-            window.alert(listaClienti);
-            var x;
+			var mailAdmin = (JSON.parse(Admin)).mail;
+			var dott = localStorage.getItem(mailAdmin);
+			var listaClienti = JSON.parse(dott).Clienti
+			var x;
+			alert(listaClienti[1]);
             for(var i = 0; i<listaClienti.length;i++){
-                x+=listaClient[i]+"<br>";
+                x+="<tr>"+listaClienti[i] ;
            }
-           document.getElementById("demo").innerHTML=x;
+           document.getElementById("demo").innerHTML=listaClienti;
         
         </script>
 		
