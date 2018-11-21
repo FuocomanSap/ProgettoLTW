@@ -64,7 +64,7 @@ function setLogged() {
 function setNome() {
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
-    alert("Bentornato " + mydati.nome + "!")
+    //alert("Bentornato " + mydati.nome + "!")
     document.getElementById("log").innerHTML = mydati.nome;
 }
 
