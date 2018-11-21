@@ -7,7 +7,6 @@ function isRegistered(email) {
 }
 
 function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
-    window.alert("sono la registerUser");
     /*
     legenda per accedere ai campi del file json
     'nome'
@@ -27,7 +26,7 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     //per fare questo non essendoci il side effect devo ricaricare nuovamente in memoria il nuovo storage
     
     updateAdmin(mail);
-    alert("utente aggiutno alal lista dell'admin");
+    //alert("utente aggiutno alal lista dell'admin"); debug
     
     return true;
     
@@ -133,7 +132,7 @@ function initAdmin(){
       return true;
     }
     else {
-        RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma",["null", "ciao"]);
+        RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma",["null"]);
         setAdmin('doctor@identistcare.com');
         window.alert("dottore creato e caricato in memoria");
         return true;
@@ -152,11 +151,11 @@ function updateAdmin(newCliente){
     //prendo la lista di clienti dell'admin
     var listaClienti = JSON.parse(dott).Clienti
 
-    window.alert(listaClienti);
+    //window.alert(listaClienti); //clienti prima del push
     //aggiorno la lista
-    var nuoviClienti=listaClienti.push(newCliente);
-
-    window.alert(nuoviClienti)
+    listaClienti.push(newCliente); //devo separe queste due perche' retorna la dimensione 
+    var nuoviClienti=listaClienti;
+    //window.alert(nuoviClienti); //questo deve restituire un numero che e' la dimensione del vettore
 
     //mi salvo i dati dell'admin
     var Onome=JSON.parse(dott).nome;
