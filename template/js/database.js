@@ -24,13 +24,11 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     localStorage.setItem(mail,JSON.stringify(persona));
 
     //ogni volta che aggiunto un utente esso dovra apaprarie nell'array del dottore
+    //per fare questo non essendoci il side effect devo ricaricare nuovamente in memoria il nuovo storage
     
-    var Admin = localStorage.getItem("ADMIN");
-    var mailAdmin = (JSON.parse(Admin)).mail;
-    var dott = localStorage.getItem(mailAdmin);
-    var listaClienti = JSON.parse(dott).Clienti
-    listaClienti.push(mail);
-    //window.alert("utente aggiunto alla lista del dottore");
+    updateAdmin(mail);
+    alert("utente aggiutno alal lista dell'admin");
+    
     return true;
     
 }
@@ -101,7 +99,7 @@ function popolaCartellaClinica() {
 
 
 //funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
-function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
+function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita,[Cliente]){
     /*
     legenda per accedere ai campi del file json
     'nome'
@@ -114,7 +112,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     'luogodinascita'    
     'Clienti' di tipo vettore
     */
-    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': ["null"], 'email' : mail};    
+    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': [Cliente], 'email' : mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
     return true;
     
@@ -135,7 +133,7 @@ function initAdmin(){
       return true;
     }
     else {
-        RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma");
+        RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma",["null", "ciao"]);
         setAdmin('doctor@identistcare.com');
         window.alert("dottore creato e caricato in memoria");
         return true;
@@ -143,6 +141,37 @@ function initAdmin(){
 
 }
 
+
+//funzione che aggiorna i clienti dell'admin
+
+function updateAdmin(newCliente){
+    var Admin = localStorage.getItem("ADMIN");
+    var mailAdmin = (JSON.parse(Admin)).mail;
+    var dott = localStorage.getItem(mailAdmin);
+    var listaClienti = JSON.parse(dott).Clienti
+    window.alert(listaClienti);
+    var nuoviClienti=listaClienti.push(newCliente);
+    window.alert(nuoviClienti)
+    var Onome=JSON.parse(dott).nome;
+    var Ocog=JSON.parse(dott).cognome;
+    var pas=JSON.parse(dott).password;
+    var num=JSON.parse(dott).numeroditelefono;
+    var ind=JSON.parse(dott).indirizzo;
+    var cf=JSON.parse(dott).codicefiscale;
+    var dn=JSON.parse(dott).datadinascita;
+    var ln=JSON.parse(dott).luogodinascita;
+    var mail =JSON.parse(dott).email;
+    
+    localStorage.removeItem(mail);
+    localStorage.removeItem("ADMIN");
+    RegisterAdmin(mail,Onome,Ocog,pas,num,ind,cf,dn,ln,nuoviClienti);
+    
+
+    
+    return true;
+
+
+}
 
 
 // fuzione che all'avvio richiede se si vuole pulire il local storage
@@ -172,9 +201,6 @@ function dataIsfree(data){
 //funzoine che manda una mail al destinatario con body
 
 function sendMailto(email,body){
-    
-    
-
     window.open("mailto:"+email+'&subject='+"Prenotazione Visita"+'&body='+body);
     
     return true;
@@ -186,7 +212,6 @@ function getCurrentMail(){
    
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
-   
     return mydati.email;
 
 }
