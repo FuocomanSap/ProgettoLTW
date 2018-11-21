@@ -99,7 +99,7 @@ function popolaCartellaClinica() {
 
 
 //funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
-function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita,[Cliente]){
+function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita,Cliente){
     /*
     legenda per accedere ai campi del file json
     'nome'
@@ -112,7 +112,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     'luogodinascita'    
     'Clienti' di tipo vettore
     */
-    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': [Cliente], 'email' : mail};    
+    var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': Cliente, 'email' : mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
     return true;
     
@@ -145,13 +145,20 @@ function initAdmin(){
 //funzione che aggiorna i clienti dell'admin
 
 function updateAdmin(newCliente){
+    //vedo chi e' l'admin
     var Admin = localStorage.getItem("ADMIN");
     var mailAdmin = (JSON.parse(Admin)).mail;
     var dott = localStorage.getItem(mailAdmin);
+    //prendo la lista di clienti dell'admin
     var listaClienti = JSON.parse(dott).Clienti
+
     window.alert(listaClienti);
+    //aggiorno la lista
     var nuoviClienti=listaClienti.push(newCliente);
+
     window.alert(nuoviClienti)
+
+    //mi salvo i dati dell'admin
     var Onome=JSON.parse(dott).nome;
     var Ocog=JSON.parse(dott).cognome;
     var pas=JSON.parse(dott).password;
@@ -162,10 +169,12 @@ function updateAdmin(newCliente){
     var ln=JSON.parse(dott).luogodinascita;
     var mail =JSON.parse(dott).email;
     
+    //cancello l'admin
     localStorage.removeItem(mail);
     localStorage.removeItem("ADMIN");
+    //setto l'admin
     RegisterAdmin(mail,Onome,Ocog,pas,num,ind,cf,dn,ln,nuoviClienti);
-    
+    setAdmin(mail);
 
     
     return true;
