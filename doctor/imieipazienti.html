@@ -33,12 +33,12 @@
 			var mailAdmin = (JSON.parse(Admin)).mail;
 			var dott = localStorage.getItem(mailAdmin);
 			var listaClienti = JSON.parse(dott).Clienti
-			var x;
+			var x = "";
 			alert(listaClienti[1]);
-            for(var i = 0; i<listaClienti.length;i++){
-                x+="<tr>"+listaClienti[i] ;
+            for(var i = 1; i<listaClienti.length;i++){
+                x+= "<br>" + listaClienti[i];
            }
-           document.getElementById("demo").innerHTML=listaClienti;
+           document.getElementById("demo").innerHTML=x;
         
         </script>
 		
