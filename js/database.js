@@ -17,7 +17,7 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     'codicefiscale'
     'datadinascita'
     'luogodinascita'    
-    'mail'
+    'email'
     */
     var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'email':mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
@@ -33,12 +33,26 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
 }
 
 function whoIsLogged() {
-    return localStorage.getItem(logged);
+    return localStorage.getItem("logged");
 }
 
 function changeLogged(email) {
-    localStorage.setItem(logged,email);
+    localStorage.setItem("logged",email);
 }
+
+function isAdmin() {
+    var admin= JSON.parse(localStorage.getItem("ADMIN"));
+    var log = JSON.parse(whoIsLogged());
+    if(log.email == admin.mail) return true;
+    return false;
+
+}
+
+function isLogged() {
+    if(whoIsLogged() === null) return false;
+    else return true;
+}
+
 
 //Funzione di login (controlla email/pwd e cambia il logged)
 function setLogged() {
@@ -110,6 +124,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     'datadinascita'
     'luogodinascita'    
     'Clienti' di tipo vettore
+    'email' mail del dotore
     */
     var persona ={'nome': Nome,'cognome': Cognome,'password': Password,'numeroditelefono': NumerodiTelefono,'indirizzo': Indirizzo,'codicefiscale': CodiceFiscale,'datadinascita': DatadiNascita,'luogodinascita': LuogodiNascita,'Clienti': Cliente, 'email' : mail};    
     localStorage.setItem(mail,JSON.stringify(persona));
@@ -177,7 +192,7 @@ function updateAdmin(newCliente){
 
     
     return true;
-
+    
 
 }
 
@@ -206,7 +221,7 @@ function dataIsfree(data){
     }
 
 }
-//funzoine che manda una mail al destinatario con body
+//funzione che manda una mail al destinatario con body
 
 function sendMailto(email,body){
     window.open("mailto:"+email+'&subject='+"Prenotazione Visita"+'&body='+body);
@@ -224,3 +239,42 @@ function getCurrentMail(){
 
 }
 
+//Funzione che controlla se un utente è loggato e lo reindirizza sulla pagina giusta
+function updatePage(){
+    if(isLogged()) {
+        if(isAdmin()){ 
+            window.location.href = "afterLogin/afteradminloginindex.html";
+        }else{ 
+            window.location.href = 'afterLogin/afterloginindex.html';
+        }
+    }
+}
+
+//Funzione che controlla se un utente è loggato e lo reindirizza su dovesiamo
+function updateDoveSiamoPage(){
+    if(isLogged()) {
+        if(isAdmin()){ 
+            window.location.href = 'afterLogin/afterloginAdmin/dovesiamo.html';
+        }else{ 
+            window.location.href = 'afterLogin/dovesiamo.html';
+        }
+        
+    }
+}
+//Funzione che controlla se un utente è loggato e lo reindirizza su contatti 
+function updateContattiPage(){
+    if(isLogged()) {
+        if(isAdmin()){ 
+            window.location.href = 'afterLogin/afterloginAdmin/contatti.html';
+        }else{ 
+            window.location.href = 'afterLogin/contatti.html';
+        }
+    }
+}
+
+//Funzione che controlla se un utente è disconnesso
+function updateAfterLoginPage() {
+    if(!isLogged()){
+        window.location.href = "../login.html";
+    }
+}

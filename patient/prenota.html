@@ -22,7 +22,7 @@
 		<script type="text/javascript" lang="javascript" src="../js/database.js"></script>
 
 		<!-- funzione che valida la form-->
-		<script langueage="JavaScript">
+		<script language="JavaScript">
 				function valida_form_prenota(){
 					if(dataIsfree(document.registerForm.DataVisita.value)==false){
 						window.alert("Data non disponibile");
@@ -49,11 +49,12 @@
 	
 
 	<body class="landing">
+		<script type="text/javascript">updateAfterLoginPage();</script>
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
 					<h1 >
-						<a href="index.html">
-						<input type="image" src="images/tooth.png" width="35" height="35">
+						<a href="/index.html">
+						<input type="image" src="/images/tooth.png" width="35" height="35">
 						iDentistCare
 						</a>
 					</h1>
@@ -91,12 +92,10 @@
                             <form method="post" action="" name="registerForm" onsubmit="return valida_form_prenota();">
                                 <div class="row uniform">
                                 
-                                    
-                                    
-                                <div class="4u 12u(1)   ">
+                                <div class="3u 12u(1)   ">
                                     <input placeholder="Data della visita" type="text" name="DataVisita" value=""  onfocus="(this.type='date')" required/>
                                 </div>
-                                </div>
+								</div>
                                 <div class="row uniform">
                                     <div class="6u 12u(1)">
                                         <input type="checkbox" id="copythismail" name="copythismail" value="true">
