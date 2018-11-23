@@ -278,3 +278,20 @@ function updateAfterLoginPage() {
         window.location.href = "../login.html";
     }
 }
+
+//funzione che stampa il jason in una alert, usare solo per debug
+function printFromAlert(mail){
+    window.alert("recived:" + mail);
+    var item = localStorage.getItem(mail);
+    var mydati = JSON.parse(item);
+    window.alert(item);
+    document.getElementById("nome").innerHTML = mydati.nome;
+    document.getElementById("cognome").innerHTML = mydati.cognome;
+    document.getElementById("telefono").innerHTML = mydati.numeroditelefono;
+    document.getElementById("indirizzo").innerHTML = mydati.indirizzo;
+    document.getElementById("codicefisc").innerHTML = mydati.codicefiscale;
+    document.getElementById("datanascita").innerHTML = mydati.datadinascita;
+    document.getElementById("luogonascita").innerHTML = mydati.luogodinascita;
+    return true;
+
+}
