@@ -90,20 +90,19 @@
                     <h2>PRENOTA QUI LA TUA VISITA</h2>
                     <section>
                             <form method="post" action="" name="registerForm" onsubmit="return valida_form_prenota();">
-                                <div class="row uniform">
                                 
-                                <div class="3u 12u(1)   ">
-                                    <input placeholder="Data della visita" type="text" name="DataVisita" value=""  onfocus="(this.type='date')" required/>
-                                </div>
+                                <div class="row uniform">
+									<div class="12u" >
+										<input placeholder="Data della visita" type="text" name="DataVisita" value=""  onfocus="(this.type='date')" required/>
+									</div>
 								</div>
-                                <div class="row uniform">
-                                    <div class="6u 12u(1)">
-                                        <input type="checkbox" id="copythismail" name="copythismail" value="true">
-										<label for="copythismail">Mandami una copia di questo prenotazione</label>
-										
-                                    </div>
-                                </div>
-                                
+								
+								<div class="row uniform">
+									<div class="6u 12u(1)">
+										<input type="checkbox" id="copythismail" name="copythismail" value="true">
+										<label for="copythismail">Mandami una email di questa registrazione</label>
+									</div>
+								</div>
                                 
                                 <div class="row uniform">
                                     <div class="12u">
@@ -118,7 +117,8 @@
                                             <li><input type="reset" value="Resetta campi" class="alt" /></li>
                                         </ul>
                                     </div>
-                                </div>
+								</div>
+
                             </form>
                         </section>
 
