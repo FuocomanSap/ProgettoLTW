@@ -67,12 +67,12 @@
 			<script language="JavaScript" >
 				function takeChecked(){
 
-					var array = document.getElementById("Lista")[0];
+					var array = document.getElementsByName("User");
 					var txt = "";
 					var i;
 					for (i = 0; i < array.length; i++) {
 						if (array[i].checked) {
-							txt = txt + array[i].value + " ";
+							txt = txt + array[i].id + " ";
 						}
 					}
 					alert(txt);
