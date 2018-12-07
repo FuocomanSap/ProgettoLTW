@@ -32,6 +32,21 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     
 }
 
+//funzione che retorna il nome e cognome dall'email
+
+function getNomeCognome(mail){
+    var item = localStorage.getItem(mail);
+    var mydati = JSON.parse(item);
+    //alert("sono la getNomeCognome" + mydati.nome + mydati.cognome);
+    return mydati.nome + " " + mydati.cognome;
+
+
+
+
+}
+
+
+
 function whoIsLogged() {
     return localStorage.getItem("logged");
 }
@@ -149,6 +164,9 @@ function initAdmin(){
     else {
         RegisterAdmin("doctor@identistcare.com","Francesco","Douglas","123","3488025988","Circonvalalzione tiburtina 4","DGLFNC96","04/08/1996","Roma",["null"]);
         setAdmin('doctor@identistcare.com');
+        RegisterUser("samuele@samuele.samuele", "Samuele", "sabatucci", "password", "34880258988", "Via falsa", "fakecf", "11/11/1111", "roma");
+        RegisterUser("Francesco.scotti@alice.it", "francesco", "Scotti", "password", "34880258988", "Via falsa", "fakecf", "11/11/1111", "roma");
+
         window.alert("dottore creato e caricato in memoria");
         return true;
     }
@@ -305,8 +323,8 @@ function printFromAlert(mail){
 function removeUser(mailtodelete){
     
     //rimuovo i dati utente dal db
-    window.alert("recived" + mailtodelete);
-    localStorage.removeItem(mailtodelete);
+    //window.alert("recived" + mailtodelete);
+    //localStorage.removeItem(mailtodelete);
     
 
     //adesso devo rimuovere l'eamil dalla lista dei clienti
@@ -326,9 +344,8 @@ function removeUser(mailtodelete){
 
             }
     var index = listaClienti.findIndex(findEqual); 
-    alert(listaClienti);
-    listaClienti.splice(index,1);
-    alert(listaClienti);
+    listaClienti.splice(index,1); //questo elimina il singolo elemneto
+   
     
     
 

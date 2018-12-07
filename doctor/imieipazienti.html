@@ -67,7 +67,7 @@
 					var i;
 					for (i = 0; i < array.length; i++) {
 						if (array[i].checked) {
-						window.alert("checked: "+ array[i].id);
+						//window.alert("checked: "+ array[i].id);
 							removeUser(array[i].id);
 							return location.reload();
 						}
@@ -110,7 +110,7 @@
 								
 								for (var i = 1; i < listaClienti.length; i++) {
 
-									x += '<input type="radio" id="' + listaClienti[i] + '" name="User"> <label for="' + listaClienti[i] + '"> <b>' + listaClienti[i] + '<b></label> '
+									x += '<input type="radio" id="' + listaClienti[i] + '" name="User"> <label for="' + listaClienti[i] + '"> <b>' + getNomeCognome(listaClienti[i]) + '<b></label> '
 
 								}
 								x+=prova;
