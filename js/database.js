@@ -295,3 +295,18 @@ function printFromAlert(mail){
     return true;
 
 }
+
+//funzione che elimina un utente dallo storgae
+
+function removeUser(mail){
+    
+    window.alert("recived" + mail);
+    localStorage.removeItem(mail);    
+    alert("rimosso utente"+ mail);
+    return true;
+
+
+
+
+
+}

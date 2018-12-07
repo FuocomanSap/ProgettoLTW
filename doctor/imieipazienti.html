@@ -68,15 +68,23 @@
 				function takeChecked(){
 
 					var array = document.getElementsByName("User");
+					
 					var txt = "";
 					var i;
 					for (i = 0; i < array.length; i++) {
 						if (array[i].checked) {
-							txt = txt + array[i].id + " ";
+							//txt = txt + array[i].id + " ";
+							//printFromAlert(array[i].id);
+							window.alert("checked: "+ array[i].id);
+							removeUser(array[i].id);
+							//return 1;
+							return location.reload();
 						}
 					}
-					alert(txt);
-					return txt;
+					
+					
+					//printFromAlert(txt);
+					
 				}
 			</script>
 
@@ -99,7 +107,7 @@
 							<div class="row uniform">
 								<div class="6u 12u(3)">
 									<ul class="actions">
-										<li><input type="button" value="Test" name="doSomething" onclick=" return printFromAlert(takeChecked())"></li>
+										<li><input type="button" value="Rimuovi" name="doSomething" onclick=" return takeChecked();"></li>
 							
 									</ul>
 								</div>
@@ -112,7 +120,7 @@
 								var dott = localStorage.getItem(mailAdmin);
 								var listaClienti = JSON.parse(dott).Clienti
 								var x = "";
-								alert(listaClienti[1]);
+								//alert(listaClienti[1]);
 								for (var i = 1; i < listaClienti.length; i++) {
 
 									x += '<input type="radio" id="' + listaClienti[i] + '" name="User"> <label for="' + listaClienti[i] + '"> <b>' + listaClienti[i] + '<b></label> '
