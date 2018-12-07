@@ -30,28 +30,22 @@
 		<!-- Header -->
 		<header id="header" class="skel-layers-fixed">
 			<h1>
-				<a id="logohome" href="afteradminloginindex.html">
+				<a id="logohome" href="/afterLogin/afteradminloginindex.html">
 					<input type="image" src="../images/tooth.png" width="35" height="35">
 					iDentistCare
 				</a>
 			</h1>
 			<nav id="nav">
 				<ul>
-					<li><a id="paginahome" href="afteradminloginindex.html">Home</a></li>
-					<li><a href="chisiamo.html">Chi siamo</a></li>
-					<li><a href="dovesiamo.html">Dove siamo</a></li>
-					<li><a href="contatti.html">Contatti</a></li>
+					<li><a id="paginahome" href="/afterLogin/afteradminloginindex.html">Home</a></li>
+					<li><a href="/afterLogin/afterloginAdmin/contatti.html">Chi siamo</a></li>
+					<li><a href="/afterLogin/afterloginAdmin/dovesiamo.html">Dove siamo</a></li>
+					<li><a href="/afterLogin/afterloginAdmin/contatti.html">Contatti</a></li>
 					<li>
-						<a id="paginacorrente" href="afteradminloginindex.html" class="icon fa-angle-down"> Benvenuto, Dr. <span id="log"></span>
+						<a id="paginacorrente" href="/afterLogin/afteradminloginindex.html" class="icon fa-angle-down"> Benvenuto, Dr. <span id="log"></span>
 						</a>
 
-						<script type="text/javascript">
-							window.onload = function () {
-								document.getElementById("paginacorrente").href = window.location.toString();
-								document.getElementById("paginahome").href = window.location.toString();
-								document.getElementById("logohome").href = window.location.toString();
-							}
-						</script>
+						
 
 						<ul>
 							<li><a id="next" href="../doctor/imieipazienti.html">I miei pazienti</a></li>
@@ -66,25 +60,18 @@
 			<script type="text/javascript">updateAfterLoginPage();</script>
 			<script language="JavaScript" >
 				function takeChecked(){
-
+					//questa funzione prende il paziente checked e lo elimina refreshando la pagina
 					var array = document.getElementsByName("User");
 					
 					var txt = "";
 					var i;
 					for (i = 0; i < array.length; i++) {
 						if (array[i].checked) {
-							//txt = txt + array[i].id + " ";
-							//printFromAlert(array[i].id);
-							window.alert("checked: "+ array[i].id);
+						window.alert("checked: "+ array[i].id);
 							removeUser(array[i].id);
-							//return 1;
 							return location.reload();
 						}
 					}
-					
-					
-					//printFromAlert(txt);
-					
 				}
 			</script>
 
@@ -95,17 +82,17 @@
 		<section id="format" class="wrapper style1">
 			<div class="container">
 				<header class="major">
-					<h2>REGISTRATI QUI</h2>
+					<h2>Lista Clienti</h2>
 					<section>						
 						<form method="POST" action="" name="myPazienti" onsubmit="">
 							<div class="row uniform">	
-								<div class="6u 12u(3)" id="Lista" >
+								<div class="12u(1)" id="Lista" >
 									
 								</div>
 							</div>
 
 							<div class="row uniform">
-								<div class="6u 12u(3)">
+								<div class="12u(1)">
 									<ul class="actions">
 										<li><input type="button" value="Rimuovi" name="doSomething" onclick=" return takeChecked();"></li>
 							
@@ -113,14 +100,14 @@
 								</div>
 							</div>
 							<script language="JavaScript">
-
+								//questa funzione prmetter di popolare il tipo radio con tutti i clienti
 								var prova = '<input type="radio" id="newUser" name="User"><label for="newUser">Nuovo Cliente</label> ';
 								var Admin = localStorage.getItem("ADMIN");
 								var mailAdmin = (JSON.parse(Admin)).mail;
 								var dott = localStorage.getItem(mailAdmin);
 								var listaClienti = JSON.parse(dott).Clienti
 								var x = "";
-								//alert(listaClienti[1]);
+								
 								for (var i = 1; i < listaClienti.length; i++) {
 
 									x += '<input type="radio" id="' + listaClienti[i] + '" name="User"> <label for="' + listaClienti[i] + '"> <b>' + listaClienti[i] + '<b></label> '
