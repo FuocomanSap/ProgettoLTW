@@ -298,15 +298,42 @@ function printFromAlert(mail){
 
 //funzione che elimina un utente dallo storgae
 
-function removeUser(mail){
+function removeUser(mailtodelete){
     
-    window.alert("recived" + mail);
-    localStorage.removeItem(mail);    
-    alert("rimosso utente"+ mail);
+    window.alert("recived" + mailtodelete);
+    localStorage.removeItem(mailtodelete);
+    
+
+    //vedo chi e' l'admin
+    var Admin = localStorage.getItem("ADMIN");
+    var mailAdmin = (JSON.parse(Admin)).mail;
+    var dott = localStorage.getItem(mailAdmin);
+    //prendo la lista di clienti dell'admin
+    var listaClienti = JSON.parse(dott).Clienti
+
+    //window.alert(listaClienti); //clienti prima del push
+    //aggiorno la lista
+    listaClienti.pop(mailtodelete); //devo separe queste due perche' retorna la dimensione 
+    var nuoviClienti = listaClienti;
+    //window.alert(nuoviClienti); //questo deve restituire un numero che e' la dimensione del vettore
+
+    //mi salvo i dati dell'admin
+    var Onome = JSON.parse(dott).nome;
+    var Ocog = JSON.parse(dott).cognome;
+    var pas = JSON.parse(dott).password;
+    var num = JSON.parse(dott).numeroditelefono;
+    var ind = JSON.parse(dott).indirizzo;
+    var cf = JSON.parse(dott).codicefiscale;
+    var dn = JSON.parse(dott).datadinascita;
+    var ln = JSON.parse(dott).luogodinascita;
+    var mail = JSON.parse(dott).email;
+
+    //cancello l'admin
+    //localStorage.removeItem(mail);
+    //localStorage.removeItem("ADMIN");
+    //setto l'admin
+    RegisterAdmin(mail, Onome, Ocog, pas, num, ind, cf, dn, ln, nuoviClienti);
+    //setAdmin(mail);
+   alert("rimosso utente"+ mail);
     return true;
-
-
-
-
-
 }
