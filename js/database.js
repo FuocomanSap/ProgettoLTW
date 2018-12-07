@@ -168,8 +168,9 @@ function updateAdmin(newCliente){
 
     //window.alert(listaClienti); //clienti prima del push
     //aggiorno la lista
+    
     listaClienti.push(newCliente); //devo separe queste due perche' retorna la dimensione 
-    var nuoviClienti=listaClienti;
+    
     //window.alert(nuoviClienti); //questo deve restituire un numero che e' la dimensione del vettore
 
     //mi salvo i dati dell'admin
@@ -184,10 +185,10 @@ function updateAdmin(newCliente){
     var mail =JSON.parse(dott).email;
     
     //cancello l'admin
-    localStorage.removeItem(mail);
-    localStorage.removeItem("ADMIN");
+    //localStorage.removeItem(mail);
+    //localStorage.removeItem("ADMIN");
     //setto l'admin
-    RegisterAdmin(mail,Onome,Ocog,pas,num,ind,cf,dn,ln,nuoviClienti);
+    RegisterAdmin(mail,Onome,Ocog,pas,num,ind,cf,dn,ln,listaClienti);
     setAdmin(mail);
 
     
@@ -296,13 +297,19 @@ function printFromAlert(mail){
 
 }
 
+
+
+
 //funzione che elimina un utente dallo storgae
 
 function removeUser(mailtodelete){
     
+    //rimuovo i dati utente dal db
     window.alert("recived" + mailtodelete);
     localStorage.removeItem(mailtodelete);
     
+
+    //adesso devo rimuovere l'eamil dalla lista dei clienti
 
     //vedo chi e' l'admin
     var Admin = localStorage.getItem("ADMIN");
@@ -310,12 +317,20 @@ function removeUser(mailtodelete){
     var dott = localStorage.getItem(mailAdmin);
     //prendo la lista di clienti dell'admin
     var listaClienti = JSON.parse(dott).Clienti
-
-    //window.alert(listaClienti); //clienti prima del push
     //aggiorno la lista
-    listaClienti.pop(mailtodelete); //devo separe queste due perche' retorna la dimensione 
-    var nuoviClienti = listaClienti;
-    //window.alert(nuoviClienti); //questo deve restituire un numero che e' la dimensione del vettore
+            //funzione che permette di trovre l'elemtno desiderato nell'aray
+
+            function findEqual(element) {
+                return element == mailtodelete;
+
+
+            }
+    var index = listaClienti.findIndex(findEqual); 
+    alert(listaClienti);
+    listaClienti.splice(index,1);
+    alert(listaClienti);
+    
+    
 
     //mi salvo i dati dell'admin
     var Onome = JSON.parse(dott).nome;
@@ -328,12 +343,9 @@ function removeUser(mailtodelete){
     var ln = JSON.parse(dott).luogodinascita;
     var mail = JSON.parse(dott).email;
 
-    //cancello l'admin
-    //localStorage.removeItem(mail);
-    //localStorage.removeItem("ADMIN");
-    //setto l'admin
-    RegisterAdmin(mail, Onome, Ocog, pas, num, ind, cf, dn, ln, nuoviClienti);
+    //aggiorno
+    RegisterAdmin(mail, Onome, Ocog, pas, num, ind, cf, dn, ln, listaClienti);
     //setAdmin(mail);
-   alert("rimosso utente"+ mail);
+    alert("rimosso utente"+ mailtodelete);
     return true;
 }
