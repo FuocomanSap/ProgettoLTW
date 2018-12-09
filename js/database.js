@@ -1,3 +1,4 @@
+//Funzione che verifica se un utente è registrato
 function isRegistered(email) {
     var x = localStorage.getItem(email);
     if(x === null) {
@@ -6,6 +7,7 @@ function isRegistered(email) {
     return true;
 }
 
+//Funzione che registra un utente
 function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita){
     /*
     legenda per accedere ai campi del file json
@@ -32,8 +34,7 @@ function RegisterUser(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Codi
     
 }
 
-//funzione che retorna il nome e cognome dall'email
-
+//Funzione che ritorna il nome e cognome dall'email
 function getNomeCognome(mail){
     var item = localStorage.getItem(mail);
     var mydati = JSON.parse(item);
@@ -46,15 +47,17 @@ function getNomeCognome(mail){
 }
 
 
-
+//Funzione che prende l'email dell'utente loggato
 function whoIsLogged() {
     return localStorage.getItem("logged");
 }
 
+//Funzione che cambia l'utente loggato
 function changeLogged(email) {
     localStorage.setItem("logged",email);
 }
 
+//Funzione che verifica se l'utente loggato è un admin
 function isAdmin() {
     var admin= JSON.parse(localStorage.getItem("ADMIN"));
     var log = JSON.parse(whoIsLogged());
@@ -63,6 +66,7 @@ function isAdmin() {
 
 }
 
+//Funzione che verifica se un utente è attualmente loggato
 function isLogged() {
     if(whoIsLogged() === null) return false;
     else return true;
@@ -89,7 +93,7 @@ function setLogged() {
     return true;
 }
 
-//Funzione che setta il nome nella index paziente
+//Funzione che setta il nome nelle pagine del paziente
 function setNome() {
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
@@ -97,7 +101,7 @@ function setNome() {
     document.getElementById("log").innerHTML = mydati.nome;
 }
 
-//Funzione che setta il nome nella index dottore
+//Funzione che setta il nome nelle pagine del dottore
 function setNomeAdmin() {
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
@@ -124,9 +128,7 @@ function popolaCartellaClinica() {
 }
 
 
-
-
-//funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
+//Funzione che registra l'admin in automatico con il campo aggiuntivo "clienti"
 function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,CodiceFiscale,DatadiNascita,LuogodiNascita,Cliente){
     /*
     legenda per accedere ai campi del file json
@@ -174,8 +176,7 @@ function initAdmin(){
 }
 
 
-//funzione che aggiorna i clienti dell'admin
-
+//Funzione che aggiorna i clienti dell'admin
 function updateAdmin(newCliente){
     //vedo chi e' l'admin
     var Admin = localStorage.getItem("ADMIN");
@@ -216,7 +217,7 @@ function updateAdmin(newCliente){
 }
 
 
-// fuzione che all'avvio richiede se si vuole pulire il local storage
+//Funzione che all'avvio richiede se si vuole pulire il local storage
 function clearAllLocalStorage(){
    //return true; //commetare questo per poter ripulire lo storage
     if(window.confirm("vuoi ripulire il local storage?")){
@@ -224,14 +225,14 @@ function clearAllLocalStorage(){
         
     }
 }
-//funzione che stora in memoria la data di prenotazione
+//Funzione che stora in memoria la data di prenotazione
 function storeDate(data){
         localStorage.setItem(data,JSON.stringify("Prenotato"));
 
 
 }
 
-//funzione che verefica se la data della prenotazione e' disponibile
+//Funzione che verifica se la data della prenotazione e' disponibile
 function dataIsfree(data){
     if(data==="1111-11-11" || isRegistered(data )) return false;
     else {
@@ -240,8 +241,7 @@ function dataIsfree(data){
     }
 
 }
-//funzione che manda una mail al destinatario con body
-
+//Funzione che manda una mail al destinatario con body
 function sendMailto(email,body){
     window.open("mailto:"+email+'&subject='+"Prenotazione Visita"+'&body='+body);
     
@@ -249,13 +249,11 @@ function sendMailto(email,body){
 
 }
 
-//funzione che prende l'attuale mail del cliente
-function getCurrentMail(){
-   
+//Funzione che prende l'attuale mail del cliente
+function getCurrentMail(){  
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
     return mydati.email;
-
 }
 
 //Funzione che controlla se un utente è loggato e lo reindirizza sulla pagina giusta
@@ -291,14 +289,30 @@ function updateContattiPage(){
     }
 }
 
-//Funzione che controlla se un utente è disconnesso
+//Funzione che controlla se un utente è disconnesso e lo reindirizza
 function updateAfterLoginPage() {
     if(!isLogged()){
         window.location.href = "../login.html";
+    } else {
+        if(isAdmin()) {
+            window.location.href = '/afterLogin/afteradminloginindex.html'; 
+        }
     }
 }
 
-//funzione che stampa il jason in una alert, usare solo per debug
+//Funzione che controlla se un admin è disconnesso e lo reindirizza
+function updateAfterLoginAdminPage()  {
+    if(!isLogged()){
+        window.location.href = "../login.html";
+    } else {
+        if(!isAdmin()) {
+            window.location.href = '/afterLogin/afterloginindex.html'; 
+        }
+    }
+}
+
+
+//funzione che stampa il json in una alert, usare solo per debug
 function printFromAlert(mail){
     window.alert("recived:" + mail);
     var item = localStorage.getItem(mail);

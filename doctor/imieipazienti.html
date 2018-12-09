@@ -26,7 +26,9 @@
 	</head>
 
 	<body class="landing">
-		<script type="text/javascript">updateAfterLoginPage();</script>
+		<script type="text/javascript">
+			updateAfterLoginAdminPage();
+		</script>
 		<!-- Header -->
 		<header id="header" class="skel-layers-fixed">
 			<h1>
@@ -38,7 +40,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a id="paginahome" href="/afterLogin/afteradminloginindex.html">Home</a></li>
-					<li><a href="/afterLogin/afterloginAdmin/contatti.html">Chi siamo</a></li>
+					<li><a href="/chisiamo.xml">Chi siamo</a></li>
 					<li><a href="/afterLogin/afterloginAdmin/dovesiamo.html">Dove siamo</a></li>
 					<li><a href="/afterLogin/afterloginAdmin/contatti.html">Contatti</a></li>
 					<li>
@@ -57,7 +59,6 @@
 			</nav>
 
 			<script language="JavaScript"> setNomeAdmin(); </script>
-			<script type="text/javascript">updateAfterLoginPage();</script>
 			<script language="JavaScript" >
 				function takeChecked(){
 					//questa funzione prende il paziente checked e lo elimina refreshando la pagina

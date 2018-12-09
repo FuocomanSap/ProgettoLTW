@@ -26,7 +26,10 @@
 	</head>
 	
 	<body class="landing">
-		<script type="text/javascript">updateAfterLoginPage();</script>
+		<script type="text/javascript">
+			//Se l'admin non è loggato viene reindirizzato al login
+			updateAfterLoginAdminPage();
+		</script>
 		<!-- Header -->
 			<header id="header" class="alt skel-layers-fixed">
 					<h1 >
@@ -43,14 +46,6 @@
 						<li><a href="/afterLogin/afterloginAdmin/contatti.html">Contatti</a></li>
 						<li>
 								<a id="paginacorrente" href="afteradminloginindex.html" class="icon fa-angle-down"> Benvenuto, Dr. <span id="log"></span> </a>
-								
-								<script type="text/javascript">
-									window.onload = function(){
-										document.getElementById("paginacorrente").href = window.location.toString();
-										document.getElementById("paginahome").href = window.location.toString();
-                                        document.getElementById("logohome").href = window.location.toString();
-                                    }
-								</script>
 								
 								<ul>
 									<li><a id="next" href="../doctor/imieipazienti.html">I miei pazienti</a></li>

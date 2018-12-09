@@ -19,13 +19,15 @@
 		<link type="text/css" rel="stylesheet" href="../css/style.css" />
 		<link type="text/css" rel="stylesheet" href="../css/style-xlarge.css" />
 	
-	
 		<script type="text/javascript" lang="javascript" src="../js/database.js"></script>
 	
 	</head>
 	
 	<body class="landing">
-		<script type="text/javascript">updateAfterLoginPage();</script>
+		<script type="text/javascript">
+			//Se l'utente non è loggato viene reindirizzato al login	
+			updateAfterLoginPage();
+		</script>
 		<!-- Header -->
 		<header id="header" class="skel-layers-fixed">
 			<h1>
@@ -37,7 +39,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a id="paginahome" href="afterloginindex.html">Home</a></li>
-					<li><a href="chisiamo.xml">Chi siamo</a></li>
+					<li><a href="../chisiamo.xml">Chi siamo</a></li>
 					<li><a href="dovesiamo.html">Dove siamo</a></li>
 					<li><a href="contatti.html">Contatti</a></li>
 					<li>

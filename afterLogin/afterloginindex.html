@@ -25,11 +25,14 @@
 	</head>
 	
 	<body class="landing">
-		<script type="text/javascript">updateAfterLoginPage();</script>
+		<script type="text/javascript">
+			//Se l'utente non è loggato viene reindirizzato al login
+			updateAfterLoginPage();
+		</script>
 		<!-- Header -->
 			<header id="header" class="alt skel-layers-fixed">
 					<h1 >
-						<a id="logohome" href="index.html">
+						<a id="logohome" href="../index.html">
 						<input type="image" src="../images/tooth.png" width="35" height="35">
 						iDentistCare
 						</a>
@@ -37,19 +40,12 @@
 				<nav id="nav">
 					<ul>
 						<li><a id="paginahome" href="../index.html">Home</a></li>
-						<li><a href="chisiamo.xml">Chi siamo</a></li>
+						<li><a href="/chisiamo.xml">Chi siamo</a></li>
 						<li><a href="dovesiamo.html">Dove siamo</a></li>
 						<li><a href="contatti.html">Contatti</a></li>
 						<li>
 								<a id="paginacorrente" href="../index.html" class="icon fa-angle-down"> Benvenuto, <span id="log"></span> </a>
 								
-								<script type="text/javascript">
-									window.onload = function(){
-										document.getElementById("paginacorrente").href = window.location.toString();
-										document.getElementById("paginahome").href = window.location.toString();
-										document.getElementById("logohome").href = window.location.toString();
-									}
-								</script>
 								
 								<ul>
 									<li><a href="../patient/prenota.html">Prenota una visita</a></li>
@@ -72,7 +68,7 @@
 					<h2></h2>
 					<p style="font-weight:bold; font-size: 250%"> Benvenuto nel nostro studio! Vienici a trovare!</p>
 					<ul class="actions">
-						<li><a href="../prenota.html" class="button big scrolly">Prenota una visita!</a></li>
+						<li><a href="../patient/prenota.html" class="button big scrolly">Prenota una visita!</a></li>
 					</ul>
 				</div>
 			</section>
