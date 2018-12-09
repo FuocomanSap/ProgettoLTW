@@ -338,7 +338,7 @@ function removeUser(mailtodelete){
     
     //rimuovo i dati utente dal db
     //window.alert("recived" + mailtodelete);
-    //localStorage.removeItem(mailtodelete);
+    localStorage.removeItem(mailtodelete);
     
 
     //adesso devo rimuovere l'eamil dalla lista dei clienti
