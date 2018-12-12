@@ -21,7 +21,7 @@ Home
 ├── Dove siamo
 ├── Contatti 
 ├── Login
-│   └── Registrati
+    └── Registrati
 </pre>
 
 * AfterLogin patient
@@ -31,10 +31,10 @@ Home
 ├── Dove siamo 
 ├── Contatti
 ├── Benvenuto, &PATIENT_NAME 
-│   └── Prenota una visita 
-│   └── La mia cartella
-│   └── Impostazioni
-│   └── Logout
+    └── Prenota una visita 
+    └── La mia cartella
+    └── Impostazioni
+    └── Logout
 </pre>
 
 * AfterLogin doctor
@@ -44,9 +44,9 @@ Home
 ├── Dove siamo
 ├── Contatti 
 ├── Benvenuto, Dr. &DOCTOR_NAME 
-│   └── I miei pazienti 
-│   └── Impostazioni 
-│   └── Logout 
+    └── I miei pazienti 
+    └── Impostazioni 
+    └── Logout 
 </pre>
 
 ## Tecnologie utilizzate
