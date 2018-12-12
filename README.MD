@@ -15,16 +15,17 @@ Il sito ha una struttura principale e due secondarie personalizzate per le aree 
 
 
 * Principale
-
+<pre>
 Home <br />
 ├── Chi siamo <br />
 ├── Dove siamo <br />
 ├── Contatti <br />
 ├── Login <br />
 │   └── Registrati <br />
+</pre>
 
 * AfterLogin patient
-
+<pre>
 Home <br />
 ├── Chi siamo <br />
 ├── Dove siamo <br />
@@ -34,9 +35,10 @@ Home <br />
 │   └── La mia cartella <br />
 │   └── Impostazioni <br />
 │   └── Logout <br />
+</pre>
 
 * AfterLogin doctor
-
+<pre>
 Home <br />
 ├── Chi siamo <br />
 ├── Dove siamo <br />
@@ -45,7 +47,7 @@ Home <br />
 │   └── I miei pazienti <br />
 │   └── Impostazioni <br />
 │   └── Logout <br />
-
+</pre>
 
 ## Tecnologie utilizzate
 Per la realizzazione del sito web abbiamo personalmente utilizzato i seguenti linguaggi:
