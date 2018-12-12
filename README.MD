@@ -16,37 +16,37 @@ Il sito ha una struttura principale e due secondarie personalizzate per le aree 
 
 * Principale
 <pre>
-Home <br />
-├── Chi siamo <br />
-├── Dove siamo <br />
-├── Contatti <br />
-├── Login <br />
-│   └── Registrati <br />
+Home
+├── Chi siamo
+├── Dove siamo
+├── Contatti 
+├── Login
+│   └── Registrati
 </pre>
 
 * AfterLogin patient
 <pre>
-Home <br />
-├── Chi siamo <br />
-├── Dove siamo <br />
-├── Contatti <br />
-├── Benvenuto, &PATIENT_NAME <br />
-│   └── Prenota una visita <br />
-│   └── La mia cartella <br />
-│   └── Impostazioni <br />
-│   └── Logout <br />
+Home 
+├── Chi siamo 
+├── Dove siamo 
+├── Contatti
+├── Benvenuto, &PATIENT_NAME 
+│   └── Prenota una visita 
+│   └── La mia cartella
+│   └── Impostazioni
+│   └── Logout
 </pre>
 
 * AfterLogin doctor
 <pre>
-Home <br />
-├── Chi siamo <br />
-├── Dove siamo <br />
-├── Contatti <br />
-├── Benvenuto, Dr. &DOCTOR_NAME <br />
-│   └── I miei pazienti <br />
-│   └── Impostazioni <br />
-│   └── Logout <br />
+Home 
+├── Chi siamo
+├── Dove siamo
+├── Contatti 
+├── Benvenuto, Dr. &DOCTOR_NAME 
+│   └── I miei pazienti 
+│   └── Impostazioni 
+│   └── Logout 
 </pre>
 
 ## Tecnologie utilizzate
