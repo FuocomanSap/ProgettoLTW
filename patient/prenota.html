@@ -30,7 +30,7 @@
 					}
 					else{
 						if(document.registerForm.copythismail.checked) {
-							sendMailto(getCurrentMail(),"ciao");
+							sendMailto(getCurrentMail(),document.getElementById("message").value + "Data della prenotazione:" +  document.registerForm.DataVisita.value);
 							return true;
 						}
 						else{
