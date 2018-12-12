@@ -149,7 +149,7 @@ function RegisterAdmin(mail,Nome,Cognome,Password,NumerodiTelefono,Indirizzo,Cod
     
 }
 
-//funzione che aggiunge una variabikle globale ADMIN per avere accesso alla mail del dottore quando voglio
+//funzione che aggiunge una variabile globale ADMIN per avere accesso alla mail del dottore quando voglio
 function setAdmin(email){
     var info = {'mail':email};
     localStorage.setItem('ADMIN',JSON.stringify(info));
@@ -249,7 +249,7 @@ function sendMailto(email,body){
 
 }
 
-//Funzione che prende l'attuale mail del cliente
+//Funzione che prende l'attuale mail del cliente loggato
 function getCurrentMail(){  
     var item= localStorage.getItem("logged");
     var mydati= JSON.parse(item);
@@ -350,7 +350,7 @@ function removeUser(mailtodelete){
     //prendo la lista di clienti dell'admin
     var listaClienti = JSON.parse(dott).Clienti
     //aggiorno la lista
-            //funzione che permette di trovre l'elemtno desiderato nell'aray
+            //funzione che permette di trovare l'elemento desiderato nell'array
 
             function findEqual(element) {
                 return element == mailtodelete;
@@ -358,7 +358,7 @@ function removeUser(mailtodelete){
 
             }
     var index = listaClienti.findIndex(findEqual); 
-    listaClienti.splice(index,1); //questo elimina il singolo elemneto
+    listaClienti.splice(index,1); //questo elimina il singolo elemento
    
     
     
