@@ -208,7 +208,7 @@ function updateAdmin(newCliente){
     //localStorage.removeItem("ADMIN");
     //setto l'admin
     RegisterAdmin(mail,Onome,Ocog,pas,num,ind,cf,dn,ln,listaClienti);
-    setAdmin(mail);
+    //setAdmin(mail);
 
     
     return true;
