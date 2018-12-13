@@ -34,9 +34,11 @@
 		<!-- Header -->
 			<!--funzione di prova per generare il dottore-->
 			<script type="text/javascript">
-				window.onload = function(){
+				function Clear(){
+					
 					clearAllLocalStorage();
 					initAdmin();
+						
 					
 				}
 				//In caso di utente loggato lo reindirizza
@@ -87,7 +89,7 @@
 				<div class="container">
 					<header class="major">
 						<h2>Perchè è importante essere un dentista TECNOLOGICO?</h2>
-						<p>Il nostro studio bla bla bla<br />
+						<p>Il nostro studio ti aspetta! Vienici a trovare!<br />
 						<br />
 						</p>
 					</header>
@@ -96,19 +98,23 @@
 						<div class="viewer">
 							<div class="reel">
 								<div class="slide">
-									<img src="images/slide01.jpg" alt="" />
+									<img src="images/dentista1.png" alt="" />
 								</div>
 								<div class="slide">
-									<img src="images/slide02.jpg" alt="" />
+									<img src="images/dentista1.jpeg" alt="" />
 								</div>
 								<div class="slide">
-									<img src="images/slide03.jpg" alt="" />
+									<img src="images/dentista2.jpeg" alt="" />
 								</div>
 							</div>
 						</div>
 						<span class="nav-next"></span>
 					</div>
 				</div>
+				<br>
+				<br>
+				<br>
+
 			</section>
 
 
@@ -121,7 +127,7 @@
 				<ul class="icons">
 					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a class="icon fa-instagram" onclick="return Clear();"><span class="label">Instagram</span></a></li>
 				</ul>
 				<ul class="menu">
 					<li><a href="index.html">Home</a></li>
